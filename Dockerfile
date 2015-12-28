@@ -21,4 +21,12 @@ RUN { \
 		echo 'opcache.enable_cli=1'; \
 	} > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
+
+# install Composer
+RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer && export PATH="$HOME/.composer/vendor/bin:$PATH" 
+
+# install Drush
+RUN curl -0 http://files.drush.org/drush.phar > drush && chmod +x drush && mv drush /usr/local/bin/drush && drush core-status
+
+
 WORKDIR /var/www/html

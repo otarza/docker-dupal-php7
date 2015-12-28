@@ -5,8 +5,8 @@
 project:
   image: otarza/php7-drupal8:latest
   ports:
-    - "97:80"
-    - "501:443"
+    - "98:80"
+    - "502:443"
   links:
     - projectdb
   volumes:
@@ -21,3 +21,15 @@ projectdb:
     MYSQL_USER: zearis
     MYSQL_PASSWORD: zearis
     MYSQL_DATABASE: zearis
+
+
+
+#  docker run -d --name projectdb-data-container mysql:5.5 --entrypoint /bin/echo MySQL data-only container for Drupal project example
+#  docker-compose build | tee ./build.log
+#  docker-compose up -d
+#  docker stop $(docker ps -a -q)
+#  docker rm $(docker ps -a -q)
+#  ln -s /var/www/project/web/ /var/www/current
+#  ln -s /var/www/project/vendor/bin/phpcs /usr/local/bin/phpcs
+#  ln -s /var/www/project/vendor/drupal/console/bin/console /usr/local/bin/drupal
+#  service apache2 restart && service php5-fpm restart
